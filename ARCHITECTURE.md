@@ -153,5 +153,5 @@ Verarbeitung relevanten Informationen.
 1. **`esb_root`-Ordner**: Verzeichnis für Service Flows erstellen,
     - standardmäßig: `~/esb_root`,
     - konfigurierbar über System Property `esb0.root` oder Umgebungsvariable `ESB_ROOT_DIR`,
-2. **Deployment der .war-Datei**: `esb0.war` in einem Servlet Container deployen,
+2. **Deployment der .war-Datei**: `esb0.war` durch `mvn package` paketieren und in einem Servlet Container deployen,
 3. **Security**: Nuter mit Rolle `esb0admin` erstellen, um auf das Admin Interface zugreifen zu können.
