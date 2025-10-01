@@ -8,14 +8,14 @@ Der esb0 ist ein Service Gateway (Enterprise Service Bus), welcher nach dem *VET
 
 Das Projekt ist in mehrere Pakete unterteilt, die jeweils einzelne Bereiche kapseln. Die wichtigsten sind im Folgenden beschrieben.
 
-- **[`com.artofarc.esb.action`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/action)** - Implementierung der einzelnen Aktionen für die Verarbeitung der Service Flows.
-- **[`com.artofarc.esb.context`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/context)** - Verwaltung von Thread Pool und Execution Context 
-- **[`com.artofarc.esb.servlet`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/servlet)** - Integration von HTTP Servlet und Web Interface
-- **[`com.artofarc.esb.http`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/http)** - HTTP Client mit Load Balancing und Connection Pooling
-- **[`com.artofarc.esb.jdbc`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/jdbc)** - JDBC-Integration
-- **[`com.artofarc.esb.jms`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/jms)** - JMS-Integration
-- **[`com.artofarc.esb.message`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/message)** - Zentrale Message-Strukturen
-- **[`com.artofarc.esb.mbean`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/mbean)** - JMX Management Beans für Monitoring
+- **[`com.artofarc.esb.action`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/action)**: Implementierung der einzelnen Aktionen für die Verarbeitung der Service Flows.
+- **[`com.artofarc.esb.context`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/context)**: Verwaltung von Thread Pool und Execution Context 
+- **[`com.artofarc.esb.servlet`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/servlet)**: Integration von HTTP Servlet und Web Interface
+- **[`com.artofarc.esb.http`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/http)**: HTTP Client mit Load Balancing und Connection Pooling
+- **[`com.artofarc.esb.jdbc`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/jdbc)**: JDBC-Integration
+- **[`com.artofarc.esb.jms`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/jms)**: JMS-Integration
+- **[`com.artofarc.esb.message`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/message)**: Zentrale Message-Strukturen
+- **[`com.artofarc.esb.mbean`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/mbean)**: JMX Management Beans für Monitoring
 
 ## Komponenten
 
@@ -30,18 +30,18 @@ Der [`ConsumerPort`](https://github.com/materna-se/esb0/blob/main/src/main/java/
 
 #### Unterstützte Technologien & Protokolle
 
-##### HTTP / HTTPS ([Quellcode](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/servlet/HttpConsumer.java), [HTTP Outbound](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/action/HttpOutboundAction.java))
+##### HTTP / HTTPS ([HttpConsumer.java](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/servlet/HttpConsumer.java), [HttpOutboundAction.java](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/action/HttpOutboundAction.java))
 
 Der esb0 unterstützt HTTP/1.1 und HTTP/2. Es wird das Chunked Transfer Encoding und Kompression mit gzip- und Fast Infoset unterstützt. Durch Unterstützung von CORS ([`HttpConstants.java`](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/http/HttpConstants.java)) werden, falls benötigt, auch
 Cross-Origin-Anfragen erlaubt. Es wird SOAP 1.1 und 1.2 ([`soap11.xsd`](https://github.com/materna-se/esb0/blob/main/src/main/xsd/soap11.xsd), [`soap12.xsd`](https://github.com/materna-se/esb0/blob/main/src/main/xsd/soap12.xsd)) inklusive MTOM / XOP Binary Attachments unterstützt.
 
 Es ist ein intelligentes *Connection Pooling* mit Load Balancing implementiert. Dafür wird eine HTTP Endpoint Registry ([`HttpEndpointRegistry.java`](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/http/HttpEndpointRegistry.java)) verwendet, die eine Verteilung der Anfragen auf verschiedene Endpunkte mit integrierter Health Check-Funktionalität (Failover und Circuit Breaker) unterstützt.
 
-##### JMS (Java Message Service) ([Verzeichnis](https://github.com/materna-se/esb0/tree/main/src/main/java/com/artofarc/esb/jms/))
+##### JMS (Java Message Service) ([com.artofarc.esb.jms](https://github.com/materna-se/esb0/tree/main/src/main/java/com/artofarc/esb/jms/))
 
 Es werden alle gängigen JMS Provider und Consumer unterstützt.
 
-##### JDBC ([Verzeichnis](https://github.com/materna-se/esb0/tree/main/src/main/java/com/artofarc/esb/jdbc/))
+##### JDBC ([com.artofarc.esb.jdbc](https://github.com/materna-se/esb0/tree/main/src/main/java/com/artofarc/esb/jdbc/))
 
 Es werden alle JDBC-kompatiblen Datenbanken unterstützt. Connection Pooling erfolgt über JNDI, es werden ebenfalls Transaktionen unterstützt. Durch ein Mapping zwischen XML und JDBC ([`XML2JDBCMapper.java`](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/jdbc/XML2JDBCMapper.java)) wird die bidirektionale Konvertierung und die weitere Verarbeitung innerhalb von Aktionen unterstützt.
 
