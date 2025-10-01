@@ -28,32 +28,30 @@ erfolgt über den [`ESBServletContextListener`](https://github.com/materna-se/es
 
 Der [`ConsumerPort`](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/ConsumerPort.java#L33) definiert das Interface für alle eingehenden Schnittstellen des esb0 und abstrahiert die verschiedenen Protokolle. Der esb0 unterstützt die folgenden Protokolle:
 
-#### Unterstützte Technologien & Protokolle
-
-##### HTTP / HTTPS ([HttpConsumer.java](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/servlet/HttpConsumer.java), [HttpOutboundAction.java](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/action/HttpOutboundAction.java))
+#### HTTP / HTTPS ([HttpConsumer.java](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/servlet/HttpConsumer.java), [HttpOutboundAction.java](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/action/HttpOutboundAction.java))
 
 Der esb0 unterstützt HTTP/1.1 und HTTP/2. Es wird das Chunked Transfer Encoding und Kompression mit gzip- und Fast Infoset unterstützt. Durch Unterstützung von CORS ([`HttpConstants.java`](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/http/HttpConstants.java)) werden, falls benötigt, auch
 Cross-Origin-Anfragen erlaubt. Es wird SOAP 1.1 und 1.2 ([`soap11.xsd`](https://github.com/materna-se/esb0/blob/main/src/main/xsd/soap11.xsd), [`soap12.xsd`](https://github.com/materna-se/esb0/blob/main/src/main/xsd/soap12.xsd)) inklusive MTOM / XOP Binary Attachments unterstützt.
 
 Es ist ein intelligentes *Connection Pooling* mit Load Balancing implementiert. Dafür wird eine HTTP Endpoint Registry ([`HttpEndpointRegistry.java`](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/http/HttpEndpointRegistry.java)) verwendet, die eine Verteilung der Anfragen auf verschiedene Endpunkte mit integrierter Health Check-Funktionalität (Failover und Circuit Breaker) unterstützt.
 
-##### JMS (Java Message Service) ([com.artofarc.esb.jms](https://github.com/materna-se/esb0/tree/main/src/main/java/com/artofarc/esb/jms/))
+#### JMS (Java Message Service) ([com.artofarc.esb.jms](https://github.com/materna-se/esb0/tree/main/src/main/java/com/artofarc/esb/jms/))
 
 Es werden alle gängigen JMS Provider und Consumer unterstützt.
 
-##### JDBC ([com.artofarc.esb.jdbc](https://github.com/materna-se/esb0/tree/main/src/main/java/com/artofarc/esb/jdbc/))
+#### JDBC ([com.artofarc.esb.jdbc](https://github.com/materna-se/esb0/tree/main/src/main/java/com/artofarc/esb/jdbc/))
 
 Es werden alle JDBC-kompatiblen Datenbanken unterstützt. Connection Pooling erfolgt über JNDI, es werden ebenfalls Transaktionen unterstützt. Durch ein Mapping zwischen XML und JDBC ([`XML2JDBCMapper.java`](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/jdbc/XML2JDBCMapper.java)) wird die bidirektionale Konvertierung und die weitere Verarbeitung innerhalb von Aktionen unterstützt.
 
-##### Apache Kafka ([KafkaConsumerPort.java](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/KafkaConsumerPort.java), [KafkaProduceAction.java](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/action/KafkaProduceAction.java))
+#### Apache Kafka ([KafkaConsumerPort.java](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/KafkaConsumerPort.java), [KafkaProduceAction.java](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/action/KafkaProduceAction.java))
 
 Die Erstellung von Kafka-Consumer und -Provider wird unterstützt. Das System unterstützt Topic-basierte Verarbeitung mit intelligenter Verwaltung der Offsets und parallele Verarbeitung auf mehreren Partitionen.
 
-##### SMTP ([SendMailAction.java](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/action/SendMailAction.java))
+#### SMTP ([SendMailAction.java](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/action/SendMailAction.java))
 
 Der Versand von E-Mails wird ebenfalls unterstützt und basiert auf der Jakarta Mail API. Dabei werden auch MIME Multipart Messages und Anhänge unterstützt.
 
-##### Dateisystem ([FileAction.java](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/action/FileAction.java))
+#### Dateisystem ([FileAction.java](https://github.com/materna-se/esb0/blob/main/src/main/java/com/artofarc/esb/action/FileAction.java))
 
 Es werden Operationen auf dem Dateisystem unterstützt, unter anderem können Dateien gelesen und geschrieben werden. Es können ebenfalls Ordner erstellt und gelöscht werden.
 
