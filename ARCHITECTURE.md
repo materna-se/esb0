@@ -9,7 +9,7 @@ Der esb0 ist ein Service Gateway (Enterprise Service Bus), welcher nach dem *VET
 Das Projekt ist in mehrere Pakete unterteilt, die jeweils einzelne Bereiche kapseln. Die wichtigsten sind im Folgenden beschrieben.
 
 - **[`com.artofarc.esb.action`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/action)**: Implementierung der einzelnen Aktionen für die Verarbeitung der Service Flows.
-- **[`com.artofarc.esb.context`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/context)**: Verwaltung von Thread Pool und Execution Context 
+- **[`com.artofarc.esb.context`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/context)**: Verwaltung von Thread Pool und Execution Context
 - **[`com.artofarc.esb.servlet`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/servlet)**: Integration von HTTP Servlet und Web Interface
 - **[`com.artofarc.esb.http`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/http)**: HTTP Client mit Load Balancing und Connection Pooling
 - **[`com.artofarc.esb.jdbc`](https://github.com/materna-se/esb0/tree/master/src/main/java/com/artofarc/esb/jdbc)**: JDBC-Integration
@@ -152,8 +152,8 @@ Verarbeitung relevanten Informationen.
     - Cache-Verwaltung
 
 ## Installation
-1. `esb_root`-Ordner: Verzeichnis für Service Flows erstellen,
+1. **`esb_root`-Ordner**: Verzeichnis für Service Flows erstellen,
     - standardmäßig: `~/esb_root`,
     - konfigurierbar über System Property `esb0.root` oder Umgebungsvariable `ESB_ROOT_DIR`,
-2. Deployment der .war-Datei: `esb0.war` in einem Servlet Container deployen,
-3. Security: Nuter mit Rolle `esb0admin` erstellen, um auf das Admin Interface zugreifen zu können.
+2. **Deployment der .war-Datei**: `esb0.war` in einem Servlet Container deployen,
+3. **Security**: Nuter mit Rolle `esb0admin` erstellen, um auf das Admin Interface zugreifen zu können.
